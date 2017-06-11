@@ -1,0 +1,8 @@
+<h1>All Tasks</h1>
+<% @tasks.each do |task| %>
+<h2>due: <%= task.deadline %></h2>
+<h2> <%= task.points %> pts </h2>
+<h2><%= task.description%></h2>
+<h2> project: <%= task.project_id %></h2>
+<br>
+<% end %>

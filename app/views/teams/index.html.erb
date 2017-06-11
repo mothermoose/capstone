@@ -1,0 +1,6 @@
+<h1>Your Teams</h1>
+<% @teams.each do |team| %>
+<h2><%= team.name %></h2>
+<h4>project_id: <%= team.project_id %></h4>
+<br>
+<% end %>
