@@ -1,9 +1,13 @@
 <h1>Your Students</h1>
-<% @students.each do |student| %>
-  <h2><%= student.first_name  %></h2>
-  <h3><%= student.last_name %></h3>
-  <h3><%= student.email %></h3>
-  <h3><%= student.password %></h3>
 
-  <br>
-<% end %>
+<div class="row">
+  <% @students.each do |student| %>
+  <div class = "col-md-4">
+    <div class = "thumbnail well">
+      <h2><a href="/students/<%= student.id %>"><%= student.first_name %></a></h2>
+    </div>
+  </div>
+  <% end %> 
+</div>
+
+<a href="/students/new"><button class="btn">Add New</button></a>

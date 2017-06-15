@@ -18,4 +18,8 @@ class ProjectsController < ApplicationController
     @project.save
   end 
 
+  def show
+    @project = Project.find (params[:id])
+  end 
+
 end

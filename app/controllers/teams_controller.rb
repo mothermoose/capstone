@@ -13,6 +13,6 @@ class TeamsController < ApplicationController
                     name: params[:name],
                     project_id: params[:project_id]
                     )
-    @team.name
+    @team.save
   end 
 end

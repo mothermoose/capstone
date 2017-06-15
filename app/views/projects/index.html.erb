@@ -1,7 +1,13 @@
-<h1>Your Projects</h1>
-<% @projects.each do |project| %>
-  <h2><%=project.name  %></h2>
-  <h3><%= project.subject %></h2>
-  <h3><%= project.description %></h2>
-  <br>
-<% end %>
+<h1>Projects</h1>
+
+<div class="row">
+  <% @projects.each do |project| %>
+  <div class = "col-md-4">
+    <div class = "thumbnail well">
+      <h2><a href="/projects/<%= project.id %>"><%= project.name %></a></h2>
+    </div>
+  </div>
+  <% end %> 
+</div>
+
+<a href="/projects/new"><button class="btn">Create a New Project</button></a>
