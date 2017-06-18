@@ -1,6 +1,6 @@
 <h1> Create a New Team </h1>
 
-<%= form_tag "/teams", method: :post do %>
+<%= form_tag "/projects/#{}/teams", method: :post do %>
 <div>
 Team Name: <input type="text" name="name" value="<%= @team.name %>">
 </div>

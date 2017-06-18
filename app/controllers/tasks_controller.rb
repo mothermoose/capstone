@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.all
+    @tasks = Task.where(project_id: params[:project_id])
+    @project_id = params[:project_id]
   end 
 
   def new

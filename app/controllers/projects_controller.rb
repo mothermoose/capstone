@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController 
 
   def index
-    @projects = Project.all
+    @projects = Project.where(teacher_id: current_teacher.id)
   end  
 
   def new
@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(
                   name: params[:name],
-                  teacher_id: params[:teacher_id],
+                  teacher_id: current_teacher.id,
                   subject:params[:subject],
                   description: params[:description]
                    )

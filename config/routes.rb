@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html 
 
-  get '/projects' => 'projects#index'
-  get '/projects/new' => 'projects#new'
-  post '/projects' => 'projects#create' 
-  get '/projects/:id' =>'projects#show'
+  # get '/projects' => 'projects#index'
+  # get '/projects/new' => 'projects#new'
+  # post '/projects' => 'projects#create' 
+  # get '/projects/:id' =>'projects#show'
+  resources :projects do 
+    resources :teams
+    resources :tasks
+  end
 
   get "/teachers/new" => "teachers#new"
   post "/teachers" => "teachers#create"
