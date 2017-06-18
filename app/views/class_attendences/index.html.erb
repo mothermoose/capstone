@@ -1,0 +1,9 @@
+<h1>Students</h1>
+
+<% @students.each do |student| %>
+<h1><%= student.first_name %> <%= student.last_name %></h2>
+<h3><%= student.email %></h3>
+<br>
+<% end %> 
+
+<a href="/students/new"><button class="btn">Create a New Student</button></a>

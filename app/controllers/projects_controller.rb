@@ -1,7 +1,15 @@
 class ProjectsController < ApplicationController 
 
   def index
-    @projects = Project.where(teacher_id: current_teacher.id)
+    if current_teacher 
+     @projects = Project.where(teacher_id: current_teacher.id)
+     else 
+      flash[:warning] = "You need to sign in to see your Projects"
+      redirect_to '/teacher_login'
+     #@projects = Project.where(team_id: )
+     #@team_hashes = Student.find(current_student.id).teams
+
+    end 
   end  
 
   def new

@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   get "/tasks/new" => "tasks#new"
   post "/tasks" => "tasks#create"
 
+  get "/class_attendences" => "class_attendences#index"
+
 
 
 end

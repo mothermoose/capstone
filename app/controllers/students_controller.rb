@@ -1,7 +1,12 @@
 class StudentsController < ApplicationController
 
   def index
-    @students = Student.all
+    if current_teacher
+      @students = Student.all
+    else 
+      flash[:warning] = "You need to sign in to see your Students"
+      redirect_to '/teacher_login'
+    end 
   end 
 
   def new
@@ -15,7 +20,13 @@ class StudentsController < ApplicationController
                         email:params[:email],
                         password: params[:password]
                           )
-    @student.save
+   if @student.save
+    @class_attendance = ClassAttendance.new(
+                        student_id: @student.id,
+                        teacher_id: current_teacher.id
+                          )
+      @class_attendance.save
+    end 
   end 
 
   def show
