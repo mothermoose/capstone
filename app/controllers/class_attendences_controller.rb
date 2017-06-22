@@ -1,7 +1,11 @@
 class ClassAttendencesController < ApplicationController
   
   def index
-    @students = current_teacher.students
-  end 
-
-end
+    if current_teacher
+      @students = current_teacher.students
+    else 
+      flash[:warning] = "You need to sign in to see your Students"
+      redirect_to '/teacher_login'
+      end 
+    end 
+  end

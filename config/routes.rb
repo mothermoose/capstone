@@ -26,9 +26,10 @@ Rails.application.routes.draw do
   post "/teacher_login" => "teacher_sessions#create"
   get "/teacher_logout" => "teacher_sessions#destroy"
 
-  get "/teams" => "teams#index"
-  get "/teams/new" => "teams#new"
-  post "/teams" => "teams#create" 
+  get "/projects/:project_id/teams" => "teams#index"
+  get "/projects/:project_id/teams/new" => "teams#new"
+  post "/teams/" => "teams#create" 
+  get "teams/:id" => "teams#show"
 
   get "/tasks" => "tasks#index"
   get "/tasks/new" => "tasks#new"

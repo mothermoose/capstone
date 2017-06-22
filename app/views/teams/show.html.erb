@@ -1,0 +1,20 @@
+<h1> <%= @team.name %> </h1>  
+
+<%= form_tag "/teams", method: :post do %>
+
+<div>
+<h3> Add Group Member </h3> 
+
+<select>
+  <% @teacher.students.each do |student| %>
+    <option value=<%= @student_team.student_id %>> <%= student.id %> </option>
+  <% end %>
+</select>
+</div> 
+
+<br>
+
+<input type="submit" value="Assign Students to Team">
+<% end %>
+
+
