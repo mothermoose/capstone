@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # get '/projects/new' => 'projects#new'
   # post '/projects' => 'projects#create' 
   # get '/projects/:id' =>'projects#show'
+  
+  get '/' => 'projects#index'
+
   resources :projects do 
     resources :teams
     resources :tasks
@@ -26,6 +29,7 @@ Rails.application.routes.draw do
   post "/teacher_login" => "teacher_sessions#create"
   get "/teacher_logout" => "teacher_sessions#destroy"
 
+  get "/teams" => "teams#index"
   get "/projects/:project_id/teams" => "teams#index"
   get "/projects/:project_id/teams/new" => "teams#new"
   post "/teams/" => "teams#create" 

@@ -1,27 +1,35 @@
-<h1> <%= @team.name %> </h1>  
+  <h1><%= @project.name %></h1>
+  <h1><%= @team.name %></h1>  
 
-<%= form_tag "/student_teams", method: :post do %>
+  <div>
+    <h3> Group Members </h3> 
+    <% @students.each do |student| %>
+      <h3><%= student.first_name %></h3> 
+    <% end %>
+  </div>
 
-<div>
-<h3> Add Group Member </h3> 
 
-<select name="student_id">
-  <% @teacher.students.each do |student| %>
-    <option value="<%= student.id %>"> <%= student.id %> </option>
-  <% end %>
-</select>
-<div>
-Team ID: <input type="text" name="team_id" value="<%= @team_id %>">
-</div>
-</div> 
+    <% if current_teacher %>
+    <h3> Add Group Member </h3>
 
-<br> 
+    <%= form_tag "/student_teams", method: :post do %>
+    <select name="student_id">
+      <% @teacher.students.each do |student| %>
+      <option value="<%= student.id %>"> <%= student.first_name %> </option>
+      <% end %>
+    </select>
+    <div>
+      Team ID: <input type="text" name="team_id" value="<%= @team_id %>">
+    </div> 
+
+  <br>
+
 
 <input type="submit" value="Assign Students to Team">
-<% end %> 
+<% end %>  
 
-<% @students.each do |student| %>
-<h3> <%= student %></h3> 
+<br>
+
+<a href="/projects/<%= @project.id %>/teams"><button class="btn">See all Teams</button></a>
 <% end %>
-
 

@@ -20,8 +20,8 @@ class StudentSessionsController < ApplicationController
   end 
 
   def destroy
-    session[:teacher_id] = nil
+    session[:student_id] = nil
     flash[:success] = 'Successfully logged out!' 
-    redirect_to '/login'
+    redirect_to '/student_login'
   end 
 end

@@ -1,12 +1,12 @@
 <h1>Your Teams</h1>
 <% @teams.each do |team| %>
 <h2> <a href="/teams/<%= team.id %>"><%= team.name %></h2></a>
-<h4>project_id: <%= team.project_id %></h4>
+<h4>project: <%= team.project.name %></h4>
 <br>
 <% end %> 
 
 <% if current_teacher %>
   <a href="/projects/<%= @project_id %> "><button class="btn">Back to Project</button></a>
   <a href="/projects"><button class="btn">See all Projects</button></a>
-  <a href="/projects/<%= @project_id %>/teams/new"><button class="btn">Create a new Team</button></a
+  <a href="/projects/<%= @project_id %>/teams/new"><button class="btn">Create a new Team</button></a>
 <% end %>

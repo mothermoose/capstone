@@ -1,16 +1,16 @@
 class TeamsController < ApplicationController
 
   def index
-    #if current_student
-     # @teams = Student.find(current_student.id).teams
-    #else
+    if current_student
+     @teams = Student.find(current_student.id).teams
+    else
       # @teams = Team.where(project_id: params[:project_id])
       # @project_id = params[:project_id]
 
       @project = Project.find(params[:project_id])
       @teams = @project.teams
     end 
-  #end 
+  end 
 
   def new
     @team = Team.new
@@ -26,12 +26,11 @@ class TeamsController < ApplicationController
   end 
 
   def show
-    @team = Team.find_by(id:params[:id])
+    @team = Team.find(params[:id])
     @teacher = @team.teacher
     @project = @team.project
     @student_team = StudentTeam.new
     @team_id = params[:id]
-    @students = []
+    @students = 
   end 
-  
 end
