@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   get "/projects/:project_id/teams/new" => "teams#new"
   post "/teams/" => "teams#create" 
   get "teams/:id" => "teams#show"
+  patch "teams/:id" => "teams#update"
+
+  post "student_teams" => "student_teams#create"
 
   get "/tasks" => "tasks#index"
   get "/tasks/new" => "tasks#new"
