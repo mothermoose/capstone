@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
-    @project_id = params[:project_id]
+    @project = Project.find(params[:project_id])
   end 
 
   def create
@@ -22,7 +22,14 @@ class TeamsController < ApplicationController
                     name: params[:name],
                     project_id: params[:project_id]
                     )
-    @team.save
+    if @team.save 
+      @team.project.tasks.each do |task|
+        TeamTask.find_or_create_by(
+                  team_id: @team.id,
+                  task_id: task.id
+                  )
+      end                    
+    end
   end 
 
   def show
@@ -31,6 +38,7 @@ class TeamsController < ApplicationController
     @project = @team.project
     @student_team = StudentTeam.new
     @team_id = params[:id]
-    @students = 
+    @students = @team.students
+    @tasks = @team.project.tasks
   end 
 end

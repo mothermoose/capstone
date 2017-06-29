@@ -16,7 +16,14 @@ class TasksController < ApplicationController
                     description: params[:description],
                     project_id: params[:project_id],
                    )
-    @task.save
+    if @task.save 
+      @task.project.teams.each do |team|
+        TeamTask.find_or_create_by(
+                        team_id: team.id,
+                        task_id: @task
+                        )
+      end
+    end
   end 
 
 end

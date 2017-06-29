@@ -2,10 +2,20 @@
   <h1><%= @team.name %></h1>  
 
   <div>
-    <h3> Group Members </h3> 
+    <h2> Group Members </h2> 
     <% @students.each do |student| %>
       <h3><%= student.first_name %></h3> 
     <% end %>
+  </div>
+<br>
+  <div>
+  <h2> Tasks </h2>
+  <% @tasks.each do |task| %>
+    <h3>due date: <%= task.deadline %></h3>
+    <h3>points: <%= task.points %> points</h3>
+    <h3>description:<%= task.description %></h3>
+    <br>
+  <%end %>
   </div>
 
 
