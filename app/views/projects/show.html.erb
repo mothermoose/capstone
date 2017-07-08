@@ -1,8 +1,18 @@
 <a href="/projects">All Projects</a>
 <br>
-<h2><%= @project.name %></h2>
-<h4><%= @project.subject %></h2>
-<h4><%= @project.description %></h4> 
+<br>
+<h1><%= @project.name %></h1>
+
+<!-- well -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="sub-title">Description</h4>
+                <div class="well"><h4><%= @project.description %></h4> 
+                </div>
+            </div><!-- / col-sm-12 -->
+        </div><!-- / row -->
+        <!-- / well -->
+
 
 <a href="/projects/<%= @project.id %>/teams"><button class="btn">See all Teams</button></a>
 <a href="/projects/<%= @project.id %>/tasks"><button class="btn">See all Tasks</button></a>
