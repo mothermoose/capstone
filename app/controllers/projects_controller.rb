@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
      @projects = Project.where(teacher_id: current_teacher.id)
      else 
       flash[:warning] = "You need to sign in to see your Projects"
-      redirect_to '/teacher_login'
+      redirect_to '/teachers/sign_in'
      #@projects = Project.where(team_id: )
      #@team_hashes = Student.find(current_student.id).teams
 

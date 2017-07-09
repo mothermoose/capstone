@@ -5,7 +5,7 @@ class ClassAttendencesController < ApplicationController
       @students = current_teacher.students
     else 
       flash[:warning] = "You need to sign in to see your Students"
-      redirect_to '/teacher_login'
+      redirect_to '/teachers/sign_in'
       end 
     end 
   end
