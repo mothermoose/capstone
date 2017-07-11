@@ -65,7 +65,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span>Login</span> <span class="dropdown-icon"></span></a>
                     <ul class="dropdown-menu animated zoomIn fast">
                         <li><a href="/teachers/sign_in"><span>Teachers</span></a></li>
-                        <li><a href="/student_login"><span>Students</span></a></li>
+                        <li><a href="/students/sign_in"><span>Students</span></a></li>
                         <li><a href="/auth/google_oauth2"><span>Login with Google</span></a></li>
 
                     </ul> 
@@ -73,17 +73,15 @@
                     </li>
                     
                     <% if current_teacher %>
-                        <li><a> Welcome, <%= current_teacher.first_name %>!</a></li>
-                        <li><a href="/teacher_logout">Log Out</a></li>
-                        <!-- <li><a href="/projects">Teacher Projects</a></li>
-                        <li><a href="/students"> Your Students</a></li> -->
+                        <li><a> Welcome, <%= current_teacher.email %>!</a></li>
+                        <%= link_to "Sign Out", "/teachers/sign_out", method: :delete %>
+                        
                     <% end %> 
 
                     <% if current_student %>
-                        <li><a>Welcome, <%= current_student.first_name %>!</a></li>
-                        <li><a href="/student_logout">Log Out</a></li>
-                        
-                        
+                        <li><a>Welcome, <%= current_student.email %>!</a></li>
+                        <%= link_to "Sign Out", "/students/sign_out", method: :delete %>
+                        <!-- <li><a href="/students/sign_out">Log Out</a></li> -->
                         <!-- <li><a href="/teams">Student Teams</a></li> -->
                     <% end %>
                    </ul>

@@ -2,10 +2,9 @@
     <div class="container-fluid">
         <!-- portfolio filter -->
         <ul class="portfolio-filter list-inline text-center">
-         <% if current_teacher %>
+         
             <li><a href="/projects" data-group="graphic-design">Your Projects</a></li>
-            <li><a href="/students" data-group="branding">Your Students</a></li>
-        <% end %> 
+            <li><a href="devise/students" data-group="branding">Your Students</a></li>
 
         </ul><!--end portfolio filter -->
 
@@ -37,7 +36,7 @@
                     </div><!-- / project-details -->
                 </div><!-- / img-bg-color -->
             </li> 
-
+            <% end %>
             <!-- project -->
             <li class="col-xs-6 col-md-4 project" data-groups='["illustration"]'>
                 <div class="img-bg-color primary">
@@ -63,20 +62,6 @@
                     </div><!-- / project-details -->
                 </div><!-- / img-bg-color -->
             </li> 
-            <% end %>
+            </ul>
+            
             <!-- / project -->
-
-
-
-<!-- -------------------------------------
-<div class="row">
-  <% @projects.each do |project| %>
-  <div class = "col-md-4">
-    <div class = "thumbnail well">
-      <h2><a href="/projects/<%= project.id %>"><%= project.name %></a></h2>
-    </div>
-  </div>
-  <% end %> 
-</div> -->
-
-<!-- <a href="/projects/new"><button class="btn">Create a New Project</button></a> -->
