@@ -6,7 +6,7 @@
       <div class="col-sm-12">
           <div class="well">
           <% @students.each do |student| %>
-          <p><%= student.first_name %></p> 
+          <p><%= student.email %></p> 
           <% end %>  
       </div><!-- / col-sm-12 -->
   </div><!-- / row -->
@@ -35,7 +35,7 @@
     <%= form_tag "/student_teams", method: :post do %>
     <select name="student_id">
       <% @teacher.students.each do |student| %>
-      <option value="<%= student.id %>"> <%= student.first_name %> </option>
+      <option value="<%= student.id %>"> <%= student.email %> </option>
       <% end %>
     </select>
     <div>
