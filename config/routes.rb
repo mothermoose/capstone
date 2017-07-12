@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :students
+  # devise_for :students
+  devise_for :students, controllers: { sessions: 'students/sessions' }
   devise_for :teachers
 
   authenticated :teacher do
@@ -16,7 +17,14 @@ Rails.application.routes.draw do
 
   devise_scope :student do 
     get '/students/sign_out' => 'devise/sessions#destroy'
+    get '/students' => 'students/sessions#index'
+    get '/students/:id' => 'students/sessions#show'
+    get "/registerstudent" => "students/registrations#registerstudentnew"
+    post "/registerstudent" => "students/registrations#registerstudentcreate"
   end
+
+  get '/add_student' => 'my_teachers#add_student_form'
+  post '/add_student' => 'my_teachers#add_student'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html 
 
   # get '/projects' => 'projects#index'
@@ -44,6 +52,10 @@ Rails.application.routes.draw do
   # get "/teacher_login" => "teacher_sessions#new"
   # post "/teacher_login" => "teacher_sessions#create"
   # get "/teacher_logout" => "teacher_sessions#destroy"
+
+  # get "/registerstudent" => "students/registrations#registerstudentnew"
+  # post "/registerstudent" => "students/registrations#registerstudentcreate"
+
 
   get "/teams" => "teams#index"
   get "/projects/:project_id/teams" => "teams#index"
