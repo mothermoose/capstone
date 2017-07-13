@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   devise_for :students, controllers: { omniauth_callbacks: 'students/omniauth_callbacks' }
   devise_for :teachers, controllers: { omniauth_callbacks: 'teachers/omniauth_callbacks' }
 
-
-
   authenticated :teacher do
   root :to => "projects#index"
   end
