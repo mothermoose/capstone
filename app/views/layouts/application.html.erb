@@ -72,18 +72,19 @@
                     <br>
                     </li>
                     
+                    <% if current_student %>
+                        <li><a>Welcome, <%= current_student.email %>!</a></li>
+                        <%= link_to "Sign Out", "/students/sign_out", method: :delete %>
+                        <!-- <li><a href="/students/sign_out">Log Out</a></li> -->
+                        <!-- <li>
+                        <a href="/teams">Student Teams</a></li> -->
+                    <% end %>
+
                     <% if current_teacher %>
                         <li><a> Welcome, <%= current_teacher.email %>!</a></li>
                         <%= link_to "Sign Out", "/teachers/sign_out", method: :delete %>
                         
                     <% end %> 
-
-                    <% if current_student %>
-                        <li><a>Welcome, <%= current_student.email %>!</a></li>
-                        <%= link_to "Sign Out", "/students/sign_out", method: :delete %>
-                        <!-- <li><a href="/students/sign_out">Log Out</a></li> -->
-                        <!-- <li><a href="/teams">Student Teams</a></li> -->
-                    <% end %>
                    </ul>
 
             </div><!--/ nav-collapse -->

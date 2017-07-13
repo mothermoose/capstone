@@ -21,6 +21,8 @@
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
-<% end %>
+<% end %> 
 
 <%= render "students/shared/links" %>
+
+<%= link_to "Sign in with Google", student_google_oauth2_omniauth_authorize_path %>

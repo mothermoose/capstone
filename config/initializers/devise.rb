@@ -1,6 +1,20 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
-Devise.setup do |config| 
+Devise.setup do |config|  
+
+
+  config.omniauth_path_prefix = "/students/auth"
+  config.omniauth_path_prefix = "/teachers/auth"
+
+
+
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], {
+     
+     scope: 'email, profile',
+     prompt: 'select_account',
+     image_aspect_ratio: 'square',
+     image_size: 50
+  } 
 
   config.scoped_views = true
   # The secret key used by Devise. Devise uses this key to generate
@@ -275,5 +289,5 @@ Devise.setup do |config|
   #
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
-  # config.omniauth_path_prefix = '/my_engine/users/auth'
+  config.omniauth_path_prefix = '/my_engine/students/auth'
 end
