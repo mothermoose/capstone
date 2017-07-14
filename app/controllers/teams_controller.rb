@@ -1,13 +1,13 @@
 class TeamsController < ApplicationController
 
+
+  before_action :authenticate_student!
+
   def index
-    if current_student
+    if !current_student.admin
      @teams = Student.find(current_student.id).teams
     else
-      # @teams = Team.where(project_id: params[:project_id])
-      # project_id = params[:project_id]
-      @project = Project.find(params[:project_id])
-      @teams = @project.teams
+      redirect_to "/projects"
     end 
   end 
 

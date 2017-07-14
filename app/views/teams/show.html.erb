@@ -29,7 +29,7 @@
     <div>
 
 
-    <% if current_teacher %>
+    <% if current_student.admin? %>
     <h3> Add Group Member </h3>
 
     <%= form_tag "/student_teams", method: :post do %>

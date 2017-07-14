@@ -8,9 +8,9 @@
             <li><a href="/teams" data-group="graphic-design">Your Projects</a></li>
         <% end %> 
 
-        <% if current_teacher %>
+        <% if current_student.admin? %>
             <li><a href="/projects" data-group="graphic-design">Your Projects</a></li>
-            <li><a href="/projects/<%=@project.id %>" data-group="graphic-design">Back to Project</a></li>
+            <!-- <li><a href="/projects/<!%=@project.id %>" data-group="graphic-design">Back to Project</a></li> -->
         <% end %>
 
         </ul><!--end portfolio filter -->
@@ -45,7 +45,7 @@
             </li> 
         <% end %>
 
-        <% if current_teacher %>
+        <% if current_student.admin? %>
         <li class="col-xs-6 col-md-4 project" data-groups='["illustration"]'>
                 <div class="img-bg-color primary">
                     <a href="single-project.html" class="project-link"></a>
@@ -63,26 +63,15 @@
                         </a>
                     </div><!-- / project-hover-tools -->
                     <!-- project-details -->
-                    <div class="project-details">
-                        <h5 class="project-title"><a href="/projects/<%= @project.id %>/teams/new">Create a New Team</a></h5>
-                        <!-- <p class="skill">SKILLS</p> -->
-                    </div><!-- / project-details -->
+                    <!% if  @project %>
+                        <div class="project-details">
+                            <!-- <h5 class="project-title"><a href="/projects/<!%= @project.id %>/teams/new">Create a New Team</a></h5> -->
+                            <!-- <p class="skill">SKILLS</p> -->
+                        </div><!-- / project-details -->
+                    <!% end %>
                 </div><!-- / img-bg-color -->
             </li>
             <% end %>
 
           
-<!-- _______________________
 
-<h1>Your Teams</h1>
-<% @teams.each do |team| %>
-<h2> <a href="/teams/<%= team.id %>"><%= team.name %></h2></a>
-<h4>project: <%= team.project.name %></h4>
-<br>
-<% end %> 
-
-<% if current_teacher %>
-  <a href="/projects/<%= @project.id %> "><button class="btn">Back to Project</button></a>
-  <a href="/projects"><button class="btn">See all Projects</button></a>
-  <a href="/projects/<%= @project.id %>/teams/new"><button class="btn">Create a new Team</button></a>
-<% end %> -->

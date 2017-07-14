@@ -4,24 +4,18 @@ Rails.application.routes.draw do
   # devise_for :teachers 
 
   devise_for :students, controllers: { omniauth_callbacks: 'students/omniauth_callbacks' }
-  devise_for :teachers, controllers: { omniauth_callbacks: 'teachers/omniauth_callbacks' }
-
 #The code below is suggested to replace the above code. need to research.
 #   devise_scope :user do
 #   get "/auth/:provider/callback" => "authentications#create"
 # end
 
-  authenticated :teacher do
-  root :to => "projects#index"
-  end
+  # authenticated :teacher do
+  # root :to => "projects#index"
+  # end
 
-  authenticated :student do
+  # authenticated :student do
   root to:'teams#index'
-  end
-
-  devise_scope :teacher do 
-    get '/teachers/sign_out' => 'devise/sessions#destroy'
-  end 
+  # end
 
   devise_scope :student do 
     get '/students/sign_out' => 'devise/sessions#destroy'

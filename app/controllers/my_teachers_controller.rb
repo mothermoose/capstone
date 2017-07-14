@@ -1,7 +1,7 @@
 class MyTeachersController < ApplicationController
   def add_student_form
     @students = Student.all
-    @my_students = current_teacher.students
+    @my_students = current_student.admin.students
   end
 
   def add_student
@@ -9,7 +9,7 @@ class MyTeachersController < ApplicationController
 
     ClassAttendance.create(
                           student_id: @student.id,
-                          teacher_id: current_teacher.id
+                          teacher_id: current_student.id
                           )
     redirect_to '/add_student'
   end

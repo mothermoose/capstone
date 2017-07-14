@@ -23,14 +23,15 @@ class Students::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end 
   def index
-  @students = Student.all
-  @my_students = current_teacher.students
-  if current_teacher
     @students = Student.all
-  else 
-    flash[:warning] = "You need to sign in to see your Students"
-    redirect_to '/teacher_login'
-  end 
+    @my_students = current_student.students
+    
+    if current_students.admin
+      @students = Student.all
+    else 
+      flash[:warning] = "You need to sign in to see your Students"
+      redirect_to '/students/sign_in'
+    end 
   end 
 
   def show

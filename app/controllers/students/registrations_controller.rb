@@ -40,7 +40,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
    if @student.save
     @class_attendance = ClassAttendance.create!(
                         student_id: @student.id,
-                        teacher_id: current_teacher.id
+                        teacher_id: current_student.admin.id
                           )
       @class_attendance.save
     end  
