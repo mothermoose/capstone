@@ -24,9 +24,9 @@ class Students::SessionsController < Devise::SessionsController
   # end 
   def index
     @students = Student.all
-    @my_students = current_student.students
+    @my_students = current_student.teachers
     
-    if current_students.admin
+    if current_student.admin
       @students = Student.all
     else 
       flash[:warning] = "You need to sign in to see your Students"

@@ -6,7 +6,10 @@ class Student < ApplicationRecord
          :omniauthable, omniauth_providers: [:google_oauth2]
 
   
-  has_many :class_attendances
+  has_many :class_attendances 
+  has_many :teachers, :through => :class_attendances
+
+
   has_many :student_teams
   has_many :teams, through: :student_teams 
 
