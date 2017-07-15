@@ -4,14 +4,14 @@ class TeamsController < ApplicationController
   before_action :authenticate_student!
 
   def index
-    if !current_student.admin
-     @teams = Student.find(current_student.id).teams
-    else
-      # @teams = Team.where(project_id: params[:project_id])
-      # project_id = params[:project_id]
+    if current_student.admin
       @project = Project.find(params[:project_id])
       @teams = @project.teams
+      render "index" 
+    else
+      @teams = Student.find(current_student.id).teams 
     end 
+
   end 
 
   def new
@@ -36,7 +36,6 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    # @teacher = @team.teacher
     @my_students = current_student.teachers
     @project = @team.project
     @student_team = StudentTeam.new

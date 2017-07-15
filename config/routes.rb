@@ -13,9 +13,7 @@ Rails.application.routes.draw do
   # root :to => "projects#index"
   # end
 
-  # authenticated :student do
-  root to:'teams#index'
-  # end
+root to:'home#index'
 
   devise_scope :student do 
     get '/students/sign_out' => 'devise/sessions#destroy'
@@ -33,11 +31,6 @@ Rails.application.routes.draw do
   # get '/projects/new' => 'projects#new'
   # post '/projects' => 'projects#create' 
   # get '/projects/:id' =>'projects#show'
-
-  resources :projects do 
-    resources :teams
-    resources :tasks
-  end
 
   # get "/teachers/new" => "teachers#new"
   # post "/teachers" => "teachers#create"
@@ -58,9 +51,14 @@ Rails.application.routes.draw do
   # get "/registerstudent" => "students/registrations#registerstudentnew"
   # post "/registerstudent" => "students/registrations#registerstudentcreate"
 
+get "/projects/:project_id/teams" => "teams#index"
+
+resources :projects do 
+    resources :teams
+    resources :tasks
+  end
 
   get "/teams" => "teams#index"
-  get "/projects/:project_id/teams" => "teams#index"
   get "/projects/:project_id/teams/new" => "teams#new"
   post "/teams/" => "teams#create" 
   get "teams/:id" => "teams#show"
@@ -73,6 +71,8 @@ Rails.application.routes.draw do
   post "/tasks" => "tasks#create"
 
   get "/class_attendences" => "class_attendences#index"
+
+  
 
 
 
