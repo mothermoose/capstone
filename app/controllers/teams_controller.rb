@@ -9,6 +9,7 @@ class TeamsController < ApplicationController
     else
       redirect_to "/projects"
     end 
+
   end 
 
   def new
