@@ -1,9 +1,9 @@
 class ProjectsController < ApplicationController 
-before_action :authenticate_teacher!
+before_action :authenticate_student!
 
   def index
-    if current_teacher 
-     @projects = Project.where(teacher_id: current_teacher.id)
+    if current_student.admin
+     @projects = Project.where(student_id: current_student.id)
      #@projects = Project.where(team_id: )
      #@team_hashes = Student.find(current_student.id).teams
 
@@ -15,13 +15,15 @@ before_action :authenticate_teacher!
   end 
 
   def create
+    if current_student.admin
     @project = Project.new(
                   name: params[:name],
-                  teacher_id: current_teacher.id,
+                  student_id: current_student.id,
                   subject:params[:subject],
                   description: params[:description]
                    )
     @project.save
+  end
   end 
 
   def show

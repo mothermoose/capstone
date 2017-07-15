@@ -64,26 +64,26 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span>Login</span> <span class="dropdown-icon"></span></a>
                     <ul class="dropdown-menu animated zoomIn fast">
-                        <li><a href="/teachers/sign_in"><span>Teachers</span></a></li>
-                        <li><a href="/students/sign_in"><span>Students</span></a></li>
-                        <li><a href="/auth/google_oauth2"><span>Login with Google</span></a></li>
+                        <li><a href="/students/sign_in"><span>Login</span></a></li>
+                        <li><a href="/students/sign_up"><span>Signup</span></a></li>
 
                     </ul> 
                     <br>
                     </li>
                     
-                    <% if current_teacher %>
-                        <li><a> Welcome, <%= current_teacher.email %>!</a></li>
-                        <%= link_to "Sign Out", "/teachers/sign_out", method: :delete %>
-                        
-                    <% end %> 
-
                     <% if current_student %>
                         <li><a>Welcome, <%= current_student.email %>!</a></li>
                         <%= link_to "Sign Out", "/students/sign_out", method: :delete %>
                         <!-- <li><a href="/students/sign_out">Log Out</a></li> -->
-                        <!-- <li><a href="/teams">Student Teams</a></li> -->
+                        <!-- <li>
+                        <a href="/teams">Student Teams</a></li> -->
                     <% end %>
+
+                    <% if current_student && current_student.admin %>
+                        <li><a> Welcome, <%= current_student.email %>!</a></li>
+                        <%= link_to "Sign Out", "/teachers/sign_out", method: :delete %>
+                        
+                    <% end %> 
                    </ul>
 
             </div><!--/ nav-collapse -->
@@ -92,15 +92,15 @@
     <!-- / nav -->
 
 <!-- javascript -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
 
 <!-- portfolio -->
-<script src="js/custom.js"></script>
-<script src="js/jquery.shuffle.min.js"></script>
+<script src="/js/custom.js"></script>
+<script src="/js/jquery.shuffle.min.js"></script>
 <!-- lightbox -->
-<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="/js/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript">
 // This will create a single gallery from all elements that have class "lightbox"
 $('.lightbox').each(function() {
@@ -117,7 +117,7 @@ $('.lightbox').each(function() {
 <!-- / portfolio -->
 
 <!-- preloader -->
-<script src="js/preloader.js"></script>
+<script src="/js/preloader.js"></script>
 <!-- / preloader -->
 
 <!-- / javascript -->

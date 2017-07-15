@@ -40,11 +40,15 @@ class Students::RegistrationsController < Devise::RegistrationsController
    if @student.save
     @class_attendance = ClassAttendance.create!(
                         student_id: @student.id,
-                        teacher_id: current_teacher.id
+                        teacher_id: current_student.admin.id
                           )
       @class_attendance.save
-    end 
-  end
+    end  
+
+  end 
+
+  # def user_type
+  # end 
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -69,7 +73,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    redirect '/students'
+    redirect "students/registrations#user_type"
   end
 
   # The path used after sign up for inactive accounts.

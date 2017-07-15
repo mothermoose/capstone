@@ -29,12 +29,12 @@
     <div>
 
 
-    <% if current_teacher %>
+    <% if current_student.admin? %>
     <h3> Add Group Member </h3>
 
     <%= form_tag "/student_teams", method: :post do %>
     <select name="student_id">
-      <% @teacher.students.each do |student| %>
+      <% @my_students.each do |student| %>
       <option value="<%= student.id %>"> <%= student.email %> </option>
       <% end %>
     </select>
@@ -43,8 +43,6 @@
     </div> 
 
   <br>
-
-
 <input type="submit" value="Assign Students to Team">
 <% end %>  
 
