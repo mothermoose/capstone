@@ -62,6 +62,7 @@ resources :projects do
   get "/projects/:project_id/teams/new" => "teams#new"
   post "/teams/" => "teams#create" 
   get "teams/:id" => "teams#show"
+  get "/projects/:project_id/team/:team_id" => "teams#teacher_show"
   patch "teams/:id" => "teams#update"
 
   post "student_teams" => "student_teams#create"

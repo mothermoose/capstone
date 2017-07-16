@@ -43,4 +43,14 @@ class TeamsController < ApplicationController
     @students = @team.students
     @tasks = @team.project.tasks 
   end 
+
+  def teacher_show
+    @team = Team.find(params[:team_id])
+    @my_students = current_student.teachers
+    @project = @team.project
+    @student_team = StudentTeam.new
+    @team_id = params[:team_id]
+    @students = @team.students
+    @tasks = @team.project.tasks 
+  end 
 end

@@ -1,4 +1,7 @@
 /* Base CSS */
+
+/*#3F3250*/
+/*#c39d6*/
 body {
   color: #666666;
   background: #fefefe;
@@ -58,7 +61,7 @@ h6 {
 }
 
 a {
-  color: #c39d6d;
+  color: #3F3250;
   -moz-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
   -webkit-transition: 0.3s ease-in-out;
@@ -118,7 +121,7 @@ ul, ol {
   border-radius: 0;
   left: 0;
   top: 7px;
-  background-color: #c39d6d;
+  background-color: #3F3250;
 }
 
 ol li {
@@ -133,11 +136,11 @@ li {
 }
 
 blockquote {
-  border-left: 3px solid #c39d6d;
+  border-left: 3px solid #3F3250;
 }
 
 .blockquote-reverse {
-  border-right: 3px solid #c39d6d;
+  border-right: 3px solid #3F3250;
 }
 
 blockquote p {
@@ -146,7 +149,7 @@ blockquote p {
 }
 
 cite {
-  color: #c39d6d;
+  color: #3F3250;
   font-size: 12px;
   opacity: 0.75;
 }
@@ -188,7 +191,7 @@ strong {
 }
 
 .text-primary {
-  color: #c39d6d;
+  color: #3F3250;
 }
 
 .text-success {
@@ -1956,7 +1959,8 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 }
 
 .project .img-bg-color.primary {
-  background: #c39d6d;
+  background: #3F3250;
+
 }
 
 .project .img-bg-color.default {
@@ -2018,7 +2022,7 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 
 .project .img-bg-color.default .open-gallery {
   color: white;
-  background-color: #c39d6d;
+  background-color: #3F3250;
 }
 
 .project .img-bg-color.default .open-gallery:hover {
@@ -2112,21 +2116,21 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 /* End Hover Effect */
 /* Portfolio with Info Box */
 #portfolio.info-box .portfolio-filter a.active {
-  color: #c39d6d;
+  color: #3F3250;
   background-color: transparent;
-  border: 2px solid #c39d6d;
+  border: 2px solid #3F3250;
 }
 
 #portfolio.info-box .portfolio-filter a.active:hover {
   color: white;
-  background-color: #c39d6d;
-  border: 2px solid #c39d6d;
+  background-color: #3F3250;
+  border: 2px solid #3F3250;
 }
 
 #portfolio.info-box .portfolio-filter a:hover {
   color: white;
-  background-color: #c39d6d;
-  border: 2px solid #c39d6d;
+  background-color: #3F3250;
+  border: 2px solid #3F3250;
 }
 
 #portfolio.info-box .project-details {
@@ -2240,7 +2244,7 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 }
 
 .post-block h5 a:hover {
-  color: #c39d6d;
+  color: #3F3250;
 }
 
 .small-post-text h5 {
@@ -2275,7 +2279,7 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 }
 
 .post-icons i:hover {
-  color: #c39d6d;
+  color: #3F3250;
 }
 
 /* End Blog Small */
@@ -2385,7 +2389,7 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 }
 
 .fact-icon {
-  color: #c39d6d;
+  color: #3F3250;
   font-size: 26px;
   display: block;
   margin-top: 0;
@@ -2461,7 +2465,7 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 }
 
 .featured .pricing-title {
-  background-color: #c39d6d;
+  background-color: #3F3250;
 }
 
 .pricing-table-price {
@@ -2474,11 +2478,11 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 }
 
 .featured .pricing-currency {
-  color: #c39d6d;
+  color: #3F3250;
 }
 
 .featured .pricing-price {
-  color: #c39d6d;
+  color: #3F3250;
 }
 
 .pricing-currency {
@@ -2794,7 +2798,7 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 }
 
 .contact-icon i {
-  color: #c39d6d;
+  color: #3F3250;
   font-size: 25px;
 }
 
@@ -2978,14 +2982,14 @@ footer .social a {
 /* End Footers */
 /* Scroll to Top */
 .scroll-to-top {
-  background: #c39d6d;
+  background: #3F3250;
   color: white;
   width: 30px;
   height: 30px;
   bottom: 20px;
   right: 20px;
   line-height: 25px;
-  border: 2px solid #c39d6d;
+  border: 2px solid #3F3250;
   border-radius: 50%;
   position: fixed;
   text-align: center;
@@ -3064,7 +3068,7 @@ footer .social a {
   height: 50px;
   display: inline-block;
   box-sizing: border-box;
-  border-top: solid 4px #c39d6d;
+  border-top: solid 4px #3F3250;
   border-right: solid 4px transparent;
   border-bottom: solid 4px transparent;
   border-left: solid 4px transparent;
@@ -3268,7 +3272,7 @@ footer .social a {
   }
 
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover {
-    color: #c39d6d;
+    color: #3F3250;
     background-color: transparent;
   }
 
@@ -3281,7 +3285,7 @@ footer .social a {
   }
 
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
-    color: #c39d6d;
+    color: #3F3250;
     background-color: transparent;
   }
 

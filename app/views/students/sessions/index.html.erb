@@ -2,23 +2,28 @@
 <section id="portfolio" class="info-box">
     <div class="container-fluid">
 
-    <ul class="portfolio-filter list-inline text-center">
-         
-            <li><a href="/projects" data-group="graphic-design">Your Projects</a></li>
-            <li><a href="/students" data-group="branding">Your Students</a></li>
+    <ul class="list-inline text-center">
+
+            <li><a href="/projects"><button class="btn">Your Projects</button></a></li>
+            <li><a href="/students"><button class="btn">Your Students</button></a></li>
 
         </ul><!--end portfolio filter -->
 
 <!-- project -->
+
+
+
         <ul class="row portfolio list-unstyled lightbox" id="grid">
             <% @my_students.each do |student| %>
             
+          <!--   <img src="<%= student.Image %>" alt="W3Schools.com"> -->
+
             <!-- project -->
             <li class="col-xs-6 col-md-4 project" data-groups='["illustration"]'>
                 <div class="img-bg-color primary">
                     <a href="single-project.html" class="project-link"></a>
                     <!-- / project-link -->
-                    <img src="images/project.jpg" alt="">
+                    <img src="<%= student.Image %>" alt="">
                     <!-- / project-image -->
 
                     <!-- project-hover-tools -->
@@ -33,7 +38,7 @@
 
                     <!-- project-details -->
                     <div class="project-details">
-                        <h5 class="project-title"><a href="/students/<%= student.id %>"><%= student.email %></a></h5>
+                        <h5 class="project-title"><a href="/students/<%= student.id %>"><%= student.name %></a></h5>
                         <!-- <p class="skill">SKILLS</p> -->
                     </div><!-- / project-details -->
                 </div><!-- / img-bg-color -->
@@ -44,7 +49,7 @@
                 <div class="img-bg-color primary">
                     <a href="single-project.html" class="project-link"></a>
                     <!-- / project-link -->
-                    <img src="images/project.jpg" alt="">
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
                     <!-- / project-image -->
 
                     <!-- project-hover-tools -->

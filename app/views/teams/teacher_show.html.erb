@@ -1,0 +1,52 @@
+<ul class="list-inline text-center">
+  <a href="/projects"><button class="btn">All Projects</button></a>
+</ul>
+
+
+<h2><%= @project.name %></h2>
+<br>
+
+<h4><%= @team.name %> Group Members</h4>
+<div class="row">
+
+    <div class="col-sm-12">
+        <div class="well">
+          <% @students.each do |student| %>
+          <p><%= student.name %></p> 
+          <% end %> 
+        </div> <!-- / well -->
+    </div><!-- / col-sm-12 -->
+</div><!-- / row -->
+<br> 
+
+
+<h4> Tasks </h4>
+<% @tasks.each do |task| %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="well">
+       <p>due date: <%= task.deadline %></p>
+       <p>points: <%= task.points %> points</p>
+       <p>description:<%= task.description %></p>
+       <br> 
+    </div>   <!-- / well -->
+  </div><!-- / col-sm-12 -->
+</div><!-- / row -->
+<% end %> 
+
+  
+    <h3> Add Group Member </h3>
+
+    <%= form_tag "/student_teams", method: :post do %>
+    <select name="student_id">
+      <% @my_students.each do |student| %>
+      <option value="<%= student.id %>"> <%= student.name %> </option>
+      <% end %>
+    </select>
+    <div>
+      Team ID: <input type="text" name="team_id" value="<%= @team_id %>">
+    </div> 
+
+  <br>
+<input type="submit" value="Assign Students to Team">
+<% end %>  
