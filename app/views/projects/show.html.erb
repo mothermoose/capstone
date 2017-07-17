@@ -15,74 +15,78 @@
 </div><!-- / row -->
         <!-- / well -->  
 
-<h3>Teams</h3>
-  <% @teams.each do |team| %>
+<div class="row space-bottom-2x">
+  <div class="col-sm-6">
+      <h3>Teams</h3>
+      <% @teams.each do |team| %>
         <div class="row">
             <div class="col-sm-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><a href="/projects/<%=@project.id%>/team/<%=team.id%>"><%= team.name %></a></h3>
-                    </div>
-                    <div class="panel-body">
-                        Panel content
-                    </div>
-                </div><!-- / panel -->
-              </div><!-- / panel -->             
-            </div><!-- / col-sm-4 -->
-  <% end %>
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h3 class="panel-title"><a href="/projects/<%=@project.id%>/team/<%=team.id%>"><%= team.name %></a></h3>
+                  </div>
+              <div class="panel-body">
+            </div>
+          </div><!-- / panel -->
+        </div><!-- / panel -->             
+      </div><!-- / col-sm-4 -->
+      <% end %>
+  </div>
 
-<h3> Create a New Team </h3>
+  <div class="col-sm-6">
+    <h3> Create a New Team </h3>
+    <%= form_tag "/projects/#{@project.id}/teams", method: :post do %>
+      <div>
+        Team Name: <input type="text" name="name" value="<%= @team.name %>">
+      </div>
+      <div>
+        Project Id: <input type="integer" name="project_id" value="<%= @team.project_id %>">
+      </div>
+      <br>
+      <input type="submit" value="Create New Team">
+      <% end %>
+      <br>  
+  </div>
+</div><!-- / row -->
+        <!-- / 2col text blocks -->
 
-<%= form_tag "/projects/#{@project.id}/teams", method: :post do %>
-<div>
-Team Name: <input type="text" name="name" value="<%= @team.name %>">
-</div>
-
-<div>
-Project Id: <input type="integer" name="project_id" value="<%= @team.project_id %>">
-</div>
-<br>
-<input type="submit" value="Create New Team">
-<% end %>
-<br>
-
-<h3>Tasks</h3>
-  <% @tasks.each do |task| %>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><%= task.deadline %></a></h3>
-                    </div>
-                    <div class="panel-body">
-                      <p> <%= task.points %> pts </p>
-                      <p><%= task.description%></p>
-                    </div>
-                </div><!-- / panel -->
-              </div><!-- / panel -->             
-            </div><!-- / col-sm-4 -->
-  <% end %> 
-
-<h3> Create a New Task </h3>
-
-<%= form_tag "/tasks", method: :post do %>
-<div>
-Deadline: <input type="date" name="deadline" value="<%= @task.deadline %>">
-</div>
-
-<div>
-Points: <input type="integer" name="points" value="<%= @task.points %>">
-</div>
-
-<div>
-Description: <input type="string" name="description" value="<%= @task.description %>">
-</div>
-
-<div>
-Project Id: <input type="integer" name="project_id" value="<%= @task.project_id %>">
-</div>
-<br>
-<input type="submit" value="Create New Task">
-<% end %>
-
-
+<div class="row space-bottom-2x">
+  <div class="col-sm-6">
+  <h3>Tasks</h3>
+    <% @tasks.each do |task| %>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= task.deadline %></a></h3>
+            </div>
+            <div class="panel-body">
+              <p> <%= task.points %> pts </p>
+              <p><%= task.description%></p>
+            </div>
+          </div><!-- / panel -->
+        </div><!-- / panel -->             
+      </div><!-- / col-sm-4 -->
+    <% end %> 
+  </div>
+  <div class="col-sm-6">
+    <h3> Create a New Task </h3>
+    <%= form_tag "/tasks", method: :post do %>
+      <div>
+        Deadline: <input type="date" name="deadline" value="<%= @task.deadline %>">
+      </div>
+      <div>
+        Points: <input type="integer" name="points" value="<%= @task.points %>">
+      </div>
+      <div>
+        Description: <input type="string" name="description" value="<%= @task.description %>">
+      </div>
+      <div>
+        Project Id: <input type="integer" name="project_id" value="<%= @task.project_id %>">
+      </div>
+      <br>
+      <input type="submit" value="Create New Task">
+    <% end %>
+  </div>
+</div><!-- / row -->
+        <!-- / 2col text blocks -->

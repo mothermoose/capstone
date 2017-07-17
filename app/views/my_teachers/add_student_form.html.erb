@@ -1,34 +1,41 @@
 <section id="portfolio" class="info-box">
-    <div class="container-fluid">
-        <!-- portfolio filter -->
-        <ul class="portfolio-filter list-inline text-center">
-         
-            <li><a href="/projects" data-group="graphic-design">Your Projects</a></li>
-            <li><a href="/students" data-group="branding">Your Students</a></li>
+  <div class="container-fluid">
+    <!-- portfolio filter -->
+    <ul class="list-inline text-center">
+      <li><a href="/projects" data-group="graphic-design"><button class="btn">Your Projects</button></a></li>
+      <li><a href="/students" data-group="branding"><button class="btn">Your Students</button></a></li>
+    </ul><!--end portfolio filter -->
 
-        </ul><!--end portfolio filter -->
-
-<h1>Add a student</h1>
-
-<%= form_tag '/add_student', method: :post do %>
-  <div>
-    <select name="student_id">
-      <% @students.each do |student| %>
-        <option value="<%= student.id %>"><%= student.email %></option>
-      <% end %>
-    </select>
-  </div>
-  <br>
-  <%= submit_tag "Add Student" %>
-<% end %>
-
-<h2>My Students</h2>
-
-<ul>
-  <% @my_students.each do |student| %>
-    <li><%= student.email %></li>
-  <% end %>
-</ul>
-
+  <div class="row space-bottom-2x">
+    <div class="col-sm-6">
+      <h2>My Students</h2>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="well">
+            <ul>
+              <% @my_students.each do |student| %>
+                <li><%= student.email %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="col-sm-6">
+      <h1>Add a student</h1>
+      <%= form_tag '/add_student', method: :post do %>
+        <div>
+          <select name="student_id">
+            <% @students.each do |student| %>
+              <option value="<%= student.id %>"><%= student.email %></option>
+            <% end %>
+          </select>
+        </div>
+        <br>
+      <%= submit_tag "Add Student" %>
+      <% end %>
+    </div>
+  </div><!-- / row -->
+<!-- / 2col text blocks -->
+  </div>
 </section>

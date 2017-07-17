@@ -1,3 +1,8 @@
+<ul class="list-inline text-center">
+  <li><a href="/projects"><button class="btn">Your Projects</button></a></li>
+</ul><!--end portfolio filter -->
+
+
 <h1> New Project</h1>
 
 <%= form_tag "/projects", method: :post do %>
@@ -12,6 +17,6 @@ Subject: <input type="text" name="subject" value="<%= @project.subject %>">
 <div>
 Description: <input type="text" name="description" value="<%= @project.description %>">
 </div>
-
+<br>
 <input type="submit" value="Create New Project">
 <% end %>
