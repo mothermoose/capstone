@@ -6,12 +6,14 @@ before_action :authenticate_student!
      @projects = Project.where(student_id: current_student.id)
      #@projects = Project.where(team_id: )
      #@team_hashes = Student.find(current_student.id).teams
+    end  
 
-    end 
   end  
 
   def new
     @project = Project.new
+    @team = Team.new
+    @task = Task.new
   end 
 
   def create
@@ -28,6 +30,10 @@ before_action :authenticate_student!
 
   def show
     @project = Project.find(params[:id])
+    @teams = @project.teams 
+    @tasks = @project.tasks
+    @team = Team.new
+    @task = Task.new
   end 
 
 end
