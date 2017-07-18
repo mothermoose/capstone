@@ -53,5 +53,12 @@ class TeamsController < ApplicationController
     @team_id = params[:team_id]
     @students = @team.students
     @tasks = @team.project.tasks 
+    @assignment_link = @team.assignment_link
   end 
+
+  def update_doc
+    @team = Team.find(params[:id])
+    @team.update(assignment_link: params[:assignment_link])
+    redirect_to "/teams/#{@team.id}"
+  end
 end

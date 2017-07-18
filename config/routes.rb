@@ -53,17 +53,19 @@ root to:'home#index'
 
 get "/projects/:project_id/teams" => "teams#index"
 
-resources :projects do 
+  resources :projects do 
     resources :teams
     resources :tasks
   end
 
+
   get "/teams" => "teams#index"
   get "/projects/:project_id/teams/new" => "teams#new"
   post "/teams/" => "teams#create" 
-  get "teams/:id" => "teams#show"
+  get "/teams/:id" => "teams#show"
   get "/projects/:project_id/team/:team_id" => "teams#teacher_show"
-  patch "teams/:id" => "teams#update"
+  patch "/teams/:id" => "teams#update"
+  patch "/teams/:id/update_doc" => 'teams#update_doc'
 
   post "student_teams" => "student_teams#create"
 

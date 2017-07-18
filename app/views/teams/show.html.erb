@@ -1,5 +1,5 @@
 <br>
-<h2><%= @project.name %> Project</h2>
+<h2><%= link_to @project.name, @team.assignment_link %></h2>
 <br> 
 
 
@@ -45,9 +45,10 @@
 <!-- / 2col text blocks -->
 
 <h3> Submit Link to Google Assignment </h3>
-  <%= form_tag "/student_teams", method: :post do %>
+  <%= form_tag "/teams/#{@team.id}/update_doc", method: :patch do %>
     <div class="form-group">
-      <b>Assignment</b> <input type="text" class="form-control" name="name" value="<%= @student_team.assignment_link %>">
+      <%= label_tag :assignment_link %>
+      <%= text_field_tag :assignment_link, @team.assignment_link %>
     </div>
     <input type="submit" class="btn btn-default" value="Submit Assignment">
   <% end %>
