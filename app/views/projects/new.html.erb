@@ -3,7 +3,7 @@
 </ul><!--end portfolio filter -->
 
 
-<h1> New Project</h1>
+<h2> New Project</h2>
 
 <%= form_tag "/projects", method: :post do %>
 <div>
@@ -16,6 +16,10 @@ Subject: <input type="text" name="subject" value="<%= @project.subject %>">
 
 <div>
 Description: <input type="text" name="description" value="<%= @project.description %>">
+</div>
+
+<div>
+Image: <input type="text" name="image" value="<%= @project.image %>"
 </div>
 <br>
 <input type="submit" value="Create New Project">

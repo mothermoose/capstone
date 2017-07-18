@@ -22,9 +22,12 @@ before_action :authenticate_student!
                   name: params[:name],
                   student_id: current_student.id,
                   subject:params[:subject],
-                  description: params[:description]
+                  description: params[:description],
+                  image: params[:image]
                    )
     @project.save
+
+    redirect_to '/projects'
   end
   end 
 

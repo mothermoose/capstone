@@ -30,7 +30,8 @@ class TeamsController < ApplicationController
                   team_id: @team.id,
                   task_id: task.id
                   )
-      end                    
+      end 
+      redirect_to "/projects/#{@team.project.id}"                   
     end
   end 
 
