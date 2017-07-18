@@ -1,18 +1,29 @@
+<br>
 <h2><%= @project.name %> Project</h2>
+<br> 
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="well"><p><%= @project.description %></p> 
+        </div>
+    </div><!-- / col-sm-12 -->
+</div><!-- / row -->
+        <!-- / well -->  
 <br>
 
 <div class="row space-bottom-2x">
   <div class="col-sm-6">
     <h4><%= @team.name %> Group Members</h4>
+      <% @students.each do |student| %>
       <div class="row">
         <div class="col-sm-12">
           <div class="well">
-            <% @students.each do |student| %>
-              <p><%= student.name %></p> 
-            <% end %> 
+              <p><%= student.name %></p>  
           </div> <!-- / well -->
         </div><!-- / col-sm-12 -->
       </div><!-- / row -->
+      <% end %>
     <br> 
   </div>
   <div class="col-sm-6">
@@ -21,9 +32,9 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="well">
-            <p>due date: <%= task.deadline %></p>
-            <p>points: <%= task.points %> points</p>
-            <p>description:<%= task.description %></p>
+            <p><b>Due Date:</b> <%= task.deadline %></p>
+            <p><b>Points:</b> <%= task.points %> points</p>
+            <p><b>Description:</b> <%= task.description %></p>
             <br> 
           </div>   <!-- / well -->
         </div><!-- / col-sm-12 -->
@@ -32,3 +43,11 @@
   </div>
 </div><!-- / row -->
 <!-- / 2col text blocks -->
+
+<h3> Submit Link to Google Assignment </h3>
+  <%= form_tag "/student_teams", method: :post do %>
+    <div class="form-group">
+      <b>Assignment</b> <input type="text" class="form-control" name="name" value="<%= @student_team.assignment_link %>">
+    </div>
+    <input type="submit" class="btn btn-default" value="Submit Assignment">
+  <% end %>

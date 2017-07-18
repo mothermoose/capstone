@@ -1315,7 +1315,7 @@ a.list-group-item .list-group-item-heading, button.list-group-item .list-group-i
   min-height: 20px;
   padding: 20px;
   margin-bottom: 20px;
-  background-color: #ebebeb;
+  background-color: #F8F8F8  ;
   border: 1px solid #cccccc;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -1780,7 +1780,7 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 /* End Navigations */
 /* Banners */
 #header-banner {
-  background-color: #ebebeb;
+  background-color: #A0A0A0;
 }
 
 #header-banner.demo-1 {

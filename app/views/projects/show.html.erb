@@ -29,7 +29,6 @@
                      <h3 class="panel-title"><a href="/projects/<%=@project.id%>/team/<%=team.id%>"><%= team.name %></a></h3>
                   </div>
               <div class="panel-body">
-                test
             </div>
           </div><!-- / panel -->
         </div><!-- / panel -->             
@@ -62,12 +61,11 @@
         <div class="col-sm-4">
           <div class="panel panel-default panel-width">
             <div class="panel-heading">
-              <h3 class="panel-title"><%= task.name %></h3>
+              <h3 class="panel-title"><b>Due Date:</b> <%= task.deadline %></h3>
             </div>
             <div class="panel-body">
-              <p><%= task.deadline %></p>
-              <p> <%= task.points %> pts </p>
-              <p><%= task.description%></p>
+              <p><b>Points:</b> <%= task.points %> pts </p>
+              <p><b>Description:</b> <%= task.description%></p>
             </div>
           </div><!-- / panel -->
         </div><!-- / panel -->             

@@ -11,15 +11,19 @@ class StudentTeamsController < ApplicationController
   end 
 
   def create
+  
     student_team = StudentTeam.new(
                     student_id: params[:student_id],
-                    team_id: params[:team_id]
+                    team_id: params[:team_id],
+                    assignment_link: params[:assignment_link]
                     ) 
     student_team.save
-    project = Team.find(params[:team_id]).project
-
-
+    project = Team.find(params[:team_id]).project 
+  
+  if current_student.admin
     redirect_to "/projects/#{project.id}/teams/"
-  end 
-
+  else
+    redirect_to "/teams/#{team.id}"
+  end
+end
 end
