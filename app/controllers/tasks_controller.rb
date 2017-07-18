@@ -11,10 +11,11 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(
+                    name: params[:name],
                     deadline: params[:deadline],
                     points: params[:points],
                     description: params[:description],
-                    project_id: params[:project_id],
+                    project_id: params[:project_id]
                    )
     if @task.save 
       @task.project.teams.each do |team|
@@ -24,6 +25,8 @@ class TasksController < ApplicationController
                         )
       end
     end
+    redirect_to "/projects/#{@task.project.id}"
+
   end 
 
 end
