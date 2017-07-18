@@ -70,10 +70,12 @@
                 <ul class="nav navbar-nav">
                     
                     <% if current_student && current_student.admin %>
-                        <li><span> Welcome, <%= current_student.name %>!</span></li>
+                        <li><span> Welcome, <%= current_student.name %>! </span></li>
+                        <br>
                         <%= link_to "Sign Out", "/students/sign_out", method: :delete %>
                     <% elsif current_student %> 
-                        <li><span>Welcome, <%= current_student.name %>!</span></li>
+                        <li><span>Welcome, <%= current_student.name %>! </span></li>
+                        <br>
                         <%= link_to "Sign Out", "/students/sign_out", method: :delete %>
                     <% else %> 
                         <li><a href="/students/sign_in"><span>Login</span></a></li>
