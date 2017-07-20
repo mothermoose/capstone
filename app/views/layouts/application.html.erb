@@ -70,10 +70,16 @@
                 <ul class="nav navbar-nav">
                     
                     <% if current_student && current_student.admin %>
+                        <div class="image-profile-cropper pull-left">
+                            <img src="<%= current_student.Image %>" class="cropped"/>
+                        </div>
                         <li><span> Welcome, <%= current_student.name %>! </span></li>
                         <br>
                         <%= link_to "Sign Out", "/students/sign_out", method: :delete %>
                     <% elsif current_student %> 
+                        <div class="image-profile-cropper pull-left">
+                            <img src="<%= current_student.Image %>" class="cropped"/>
+                        </div>
                         <li><span>Welcome, <%= current_student.name %>! </span></li>
                         <br>
                         <%= link_to "Sign Out", "/students/sign_out", method: :delete %>

@@ -1,9 +1,12 @@
 <br>
 <ul class="list-inline text-center">
   <a href="/projects"><button class="btn"><b>All Projects</b></button></a>
+  <div class="image-cropper pull-right">
+    <img src="<%= @project.image %>" class="cropped"/>
+  </div>
 </ul>
 
-<h1> <%= @team.name %></h1>
+<h1> Team <%= @team.name %></h1>
 <br>
 
 <div class="row space-bottom-2x">
