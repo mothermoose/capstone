@@ -3953,4 +3953,30 @@ body {
   background-image: url('/images/stitched_wool.png');
 }
 /* End Min Widths */
-/* / End Media Screens */
+/* / End Media Screens */ 
+
+.image-cropper {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 50px 25px 0;
+} 
+
+img.cropped {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}
+
+.project-title-large {
+  display: inline-block;
+  margin-top: 25px;
+}

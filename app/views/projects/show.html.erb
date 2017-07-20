@@ -5,7 +5,12 @@
   <br>
   <br>
 </ul>
-<h1><%= @project.name %> Project</h1>
+
+<h1 class="project-title-large"><%= @project.name %> Project</h1>
+<div class="image-cropper pull-right">
+    <img src="<%= @project.image %>" class="cropped"/>
+</div>
+
 </br>
 
 <!-- well -->
