@@ -4,8 +4,8 @@ before_action :authenticate_student!
   def index
     if current_student.admin
      @projects = Project.where(student_id: current_student.id)
-     #@projects = Project.where(team_id: )
-     #@team_hashes = Student.find(current_student.id).teams
+    else
+      redirect_to '/teams'
     end  
 
   end  
